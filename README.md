@@ -4,7 +4,7 @@ Sophia is an online reading handler that helps user enjoy read, understand, and 
 
 ## Feature
 
-## Core
+### Core
 
 - Dictionary
 - Etymology
