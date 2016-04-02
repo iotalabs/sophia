@@ -108,3 +108,30 @@ _testmain.go
 *.test
 *.prof
 
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# compiled output
+web/dist
+web/tmp
+
+# dependencies
+web/node_modules
+web/bower_components
+
+web/.sass-cache
+web/connect.lock
+web/coverage/*
+web/libpeerconnection.log
+web/npm-debug.log
+web/testem.log
+
+browsers/chrome/node_modules
+browsers/chrome/temp
+browsers/chrome/.tmp
+browsers/chrome/dist
+browsers/chrome/.sass-cache
+browsers/chrome/app/bower_components
+browsers/chrome/test/bower_components
+browsers/chrome/package
+browsers/chrome/app/scripts
+

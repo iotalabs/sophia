@@ -1,0 +1,10 @@
+{
+  "appName": {
+    "message": "sophia",
+    "description": "The name of the application"
+  },
+  "appDescription": {
+    "message": "Sophia is an online reading handler that plugin for google chrome",
+    "description": "The description of the application"
+  }
+}
