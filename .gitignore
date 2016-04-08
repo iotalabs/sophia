@@ -1,137 +1,24 @@
-### OSX ###
-.DS_Store
-.AppleDouble
-.LSOverride
+# App artifacts
+/_build
+/db
+/deps
+/*.ez
 
-# Icon must end with two \r
-Icon
+# Generate on crash by the VM
+erl_crash.dump
 
-# Thumbnails
-._*
+# Static artifacts
+/node_modules
 
-# Files that might appear in the root of a volume
-.DocumentRevisions-V100
-.fseventsd
-.Spotlight-V100
-.TemporaryItems
-.Trashes
-.VolumeIcon.icns
+# Since we are building assets from web/static,
+# we ignore priv/static. You may want to comment
+# this depending on your deployment strategy.
+/priv/static/
 
-# Directories potentially created on remote AFP share
-.AppleDB
-.AppleDesktop
-Network Trash Folder
-Temporary Items
-.apdisk
-
-
-### Vim ###
-# swap
-[._]*.s[a-w][a-z]
-[._]s[a-w][a-z]
-# session
-Session.vim
-# temporary
-.netrwhist
-*~
-# auto-generated tag files
-tags
-
-
-### Emacs ###
-# -*- mode: gitignore; -*-
-*~
-\#*\#
-/.emacs.desktop
-/.emacs.desktop.lock
-*.elc
-auto-save-list
-tramp
-.\#*
-
-# Org-mode
-.org-id-locations
-*_archive
-
-# flymake-mode
-*_flymake.*
-
-# eshell files
-/eshell/history
-/eshell/lastdir
-
-# elpa packages
-/elpa/
-
-# reftex files
-*.rel
-
-# AUCTeX auto folder
-/auto/
-
-# cask packages
-.cask/
-dist/
-
-# Flycheck
-flycheck_*.el
-
-# server auth directory
-/server/
-
-# projectiles files
-.projectile
-
-### Go ###
-# Compiled Object files, Static and Dynamic libs (Shared Objects)
-*.o
-*.a
-*.so
-
-# Folders
-_obj
-_test
-
-# Architecture specific extensions/prefixes
-*.[568vq]
-[568vq].out
-
-*.cgo1.go
-*.cgo2.c
-_cgo_defun.c
-_cgo_gotypes.go
-_cgo_export.*
-
-_testmain.go
-
-*.exe
-*.test
-*.prof
-
-# See http://help.github.com/ignore-files/ for more about ignoring files.
-
-# compiled output
-web/dist
-web/tmp
-
-# dependencies
-web/node_modules
-web/bower_components
-
-web/.sass-cache
-web/connect.lock
-web/coverage/*
-web/libpeerconnection.log
-web/npm-debug.log
-web/testem.log
-
-browsers/chrome/node_modules
-browsers/chrome/temp
-browsers/chrome/.tmp
-browsers/chrome/dist
-browsers/chrome/.sass-cache
-browsers/chrome/app/bower_components
-browsers/chrome/test/bower_components
-browsers/chrome/package
-browsers/chrome/app/scripts
-
+# The config/prod.secret.exs file by default contains sensitive
+# data and you should not commit it into version control.
+#
+# Alternatively, you may comment the line below and commit the
+# secrets file as long as you replace its contents by environment
+# variables.
+/config/prod.secret.exs
