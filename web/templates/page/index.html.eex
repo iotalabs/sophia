@@ -1,0 +1,26 @@
+<div class="jumbotron">
+  <h2><%= gettext "Welcome to %{name}", name: "Sophia" %></h2>
+  <p class="lead">Sophia is an online reading handler that<br/>helps user enjoy read, understand, and memorize vocabulary.</p>
+</div>
+
+<div class="row marketing">
+  <div class="col-lg-6">
+    <h4>Resources</h4>
+      <li>
+        <a href="https://github.com/iotalabs/sophia">Source</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="col-lg-6">
+    <h4>Help</h4>
+    <ul>
+      <li>
+        <a href="https://github.com/iotalabs/sophia/issues">Issue</a>
+      </li>
+      <li>
+        <a href="https://gitter.im/iotalabs/sophia">#Sophia on Gitter</a>
+      </li>
+    </ul>
+  </div>
+</div>
