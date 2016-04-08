@@ -20,7 +20,8 @@ defmodule Sophia.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", Sophia do
-  #   pipe_through :api
-  # end
+  scope "/api", Sophia do
+    pipe_through :api
+    resources "/users", UserController
+  end
 end
