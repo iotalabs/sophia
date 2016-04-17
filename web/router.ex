@@ -22,6 +22,11 @@ defmodule Sophia.Router do
   # Other scopes may use custom stacks.
   scope "/api", Sophia do
     pipe_through :api
-    resources "/users", UserController
+
+    scope "/v1", V1, as: :v1 do
+      resources "/user", UserController
+      resources "/lookup", LookupController
+      resources "/annotate", AnnotateController
+    end
   end
 end

@@ -6,6 +6,7 @@ defmodule Sophia.Repo.Migrations.CreateUser do
       add :username, :string
       add :password, :string
       add :email, :string
+      add :nickname, :string
 
       timestamps
     end

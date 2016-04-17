@@ -1,7 +1,7 @@
-defmodule Sophia.UserController do
+defmodule Sophia.V1.UserController do
   use Sophia.Web, :controller
 
-  alias Sophia.User
+  alias Sophia.V1.User
 
   plug :scrub_params, "user" when action in [:create, :update]
 
@@ -17,7 +17,7 @@ defmodule Sophia.UserController do
       {:ok, user} ->
         conn
         |> put_status(:created)
-        |> put_resp_header("location", user_path(conn, :show, user))
+        |> put_resp_header("location", v1_user_path(conn, :show, user))
         |> render("show.json", user: user)
       {:error, changeset} ->
         conn

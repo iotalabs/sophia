@@ -1,0 +1,132 @@
+#%RAML 1.0
+title: User API
+description: 用户操作的API
+version: v1
+baseURL: /api/{version}
+protocols: [HTTP, HTTPS]
+mediaType: application/json
+types:
+  Succeeded:
+    type: object
+    description: 成功的结果
+    properties:
+      id:
+        type: string
+        pattern: ^\w{36}$
+        example: B4888542-1840-4B68-861B-AD4362F35DE9
+      status:
+        type: string
+        default: ok
+  Failed:
+    type: object
+    description: 失败的结果
+    properties:
+      status:
+        type: string
+        default: ok
+      message:
+        type: string
+        description: 简单的描述
+      errors:
+        type: object
+        properties:
+          field:
+            type: string
+            description: 字段
+          code:
+            type: string
+            description: 错误代码
+          error:
+            type: string
+            description: 错误内容
+  Position:
+    type: object
+    description: 位置
+    properties:
+      x: integer
+      y: integer
+  Tag:
+    type: object
+    description: 标签
+    properties:
+      relationship:
+        type: string
+        enum: [synonym, root, etyma]
+        word: string
+  Browse:
+    type: object
+    description: 浏览记录
+    properties:
+      url: string
+      content?: string
+      position?:
+        type: Position
+      raw?: string
+      enter_at?:
+        type: datetime
+        description: 进入时间
+      leave_at?:
+        type: datetime
+        description: 离开时间
+  Lookup:
+    type: object
+    description: 查单词
+    properties:
+      url:
+        type:string
+      word:
+        type:string
+      position?:
+        type: Position
+      tags?:
+        type: Tag
+
+/users:
+  displayName: Users
+  /{user}:
+    uriParameters:
+      [\d+]:
+        user:
+          type: integer
+      [^\d+]:
+        user:
+          type: string
+    /browse:
+      description: Browse history
+      post:
+        description: Record browse history
+        headers:
+          S-Token:
+            description: The S-Token needed to auth user identity
+            type: string
+            pattern: ^\w{36}$
+            example: B4888542-1840-4B68-861B-AD4362F35DE9
+        body:
+          application/json:
+            type: Browse
+          responses:
+            201:
+              body:
+                application/json:
+                  type: Succeeded
+            400:
+              body:
+                application/json:
+                  type: Failed
+            500:
+              body:
+                application/json:
+                  type: Failed
+    /lookup:
+      description: Look up dictionary
+      post:
+        description: Record the user look up dictionary
+        headers:
+          S-Token:
+            description: The S-Token needed to auth user identity
+            type: string
+            pattern: ^\w{36}$
+            example: B4888542-1840-4B68-861B-AD4362F35DE9
+        body:
+          application/json:
+            type: Lookup

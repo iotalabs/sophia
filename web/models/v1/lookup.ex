@@ -1,16 +1,19 @@
-defmodule Sophia.User do
+defmodule Sophia.V1.Lookup do
   use Sophia.Web, :model
 
-  schema "users" do
-    field :username, :string
-    field :password, :string
-    field :email, :string
+  schema "lookups" do
+    field :user_id, :string
+    field :url, :string
+    field :word, :string
+    field :position, :string
+    field :source, :string
+    field :relationship, :string
 
     timestamps
   end
 
-  @required_fields ~w(username password email)
-  @optional_fields ~w()
+  @required_fields ~w(user_id word)
+  @optional_fields ~w(url position source relationship)
 
   @doc """
   Creates a changeset based on the `model` and `params`.
